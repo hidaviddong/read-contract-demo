@@ -13,7 +13,15 @@ export default function Viem() {
     <div className="flex w-full flex-col gap-4 rounded-lg p-3 sm:p-4 border border-gray-200 overflow-hidden">
       <h2 className="text-xl sm:text-2xl font-bold break-words">Implementation 1: Using viem's publicClient</h2>
       <div className="w-full overflow-x-auto">
-        <CodeBlock lang="ts">
+        <CodeBlock lang="ts"
+        decorations={[
+            {
+              start: { line: 14, character: 0 },
+              end: { line: 17, character: 66 },
+              properties: { class: 'bg-yellow-100' }
+            }
+          ]}
+        >
           {`import { createPublicClient, http } from 'viem'
 import { mainnet } from 'viem/chains'
 

@@ -6,7 +6,23 @@ export default function Page() {
     <main className='flex w-full flex-col gap-4 rounded-lg p-3 sm:p-4 border border-gray-200 overflow-hidden'>
       <h2 className="text-xl sm:text-2xl font-bold break-words">Implementation 2: Using Custom Read Contract</h2>
       <div className="w-full overflow-x-auto">
-        <CodeBlock lang="ts">
+        <CodeBlock lang="ts" decorations={[
+          {
+            start: { line: 15, character: 0 },
+            end: { line: 15, character: 82 },
+            properties: { class: 'bg-yellow-200' }
+          },
+          {
+            start: { line: 61, character: 0 },
+            end: { line: 69, character: 21 },
+            properties: { class: 'bg-yellow-100' }
+          },
+          {
+            start: { line: 79, character: 0 },
+            end: { line: 81, character: 82 },
+            properties: { class: 'bg-yellow-100' }
+          }
+        ]}>
           {`
 import type { Abi,AbiFunction,AbiParametersToPrimitiveTypes,ExtractAbiFunction,ExtractAbiFunctionNames } from "abitype";
 import type { AbiParametersToNamedPrimitiveTypes } from "./types";
