@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { encodeFunctionData, decodeAbiParameters } from 'viem';
 import { UniswapV2Abi } from "@/lib/utils";
-import type { Abi, AbiFunction, AbiParametersToPrimitiveTypes, ExtractAbiFunction, ExtractAbiFunctionNames } from "abitype";
+import type { Abi, AbiFunction, AbiParameter,AbiParameterKind, AbiParametersToPrimitiveTypes, AbiParameterToPrimitiveType, ExtractAbiFunction, ExtractAbiFunctionNames } from "abitype";
 
 export type AbiParametersToNamedPrimitiveTypes<
   abiParameters extends readonly AbiParameter[],
@@ -16,14 +16,6 @@ export type AbiParametersToNamedPrimitiveTypes<
   >;
 };
 
-type AbiParameter = {
-  name?: string;
-  type: string;
-};
-
-type AbiParameterKind = "inputs" | "outputs";
-
-type AbiParameterToPrimitiveType<T extends AbiParameter, K extends AbiParameterKind> = any;
 
 async function readContract<
   abi extends Abi,

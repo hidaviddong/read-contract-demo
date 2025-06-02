@@ -8,7 +8,7 @@ export default function Page() {
     <CodeBlock lang="ts">
         {
             `
-import type { AbiParameter, AbiParameterKind, AbiParameterToPrimitiveType } from "abitype";
+import type { AbiParameter, AbiParameterKind, AbiParameterToPrimitiveType, AbiParameterToPrimitiveType } from "abitype";
 
 export type AbiParametersToNamedPrimitiveTypes<
   abiParameters extends readonly AbiParameter[],
@@ -19,7 +19,25 @@ export type AbiParametersToNamedPrimitiveTypes<
     abiParameterKind
   >;
 };
-            `
+
+/** 
+abiParameters[number] = 
+[
+  { internalType: "uint112", name: "reserve0", type: "uint112" },
+  { internalType: "uint112", name: "reserve1", type: "uint112" },
+  { internalType: "uint32", name: "blockTimestampLast", type: "uint32" }
+] 
+
+
+ abiParameters[number]["name"]" = "reserve0" | "reserve1" | "blockTimestampLast"
+
+ 
+ if K = "reserve0":
+ Extract<abiParameters[number], { name: "reserve0" }> = { internalType: "uint112", name: "reserve0", type: "uint112" }
+
+ AbiParameterToPrimitiveType<> will generate javascript type: bigint
+**/
+        `
         }
       </CodeBlock>
     </div>
